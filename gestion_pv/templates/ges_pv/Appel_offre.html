@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appel d'Offre MAG</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'appel_offre.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>M.A.G</h2>
+            <nav>
+                <ul>
+                    <li><a href="#">Accueil</a></li>
+                    <li><a href="#">Appel d'Offre</a></li>
+                    <li><a href="#">Comptes</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="content">
+            <header>
+                <div class="search-user-container">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Recherche...">
+                        <span class="search-icon">&#128269;</span> <!-- Icône de recherche -->
+                    </div>
+                    <div class="user">
+                        <b><span>User</span></b> 
+                        <div class="user-icon">A</div>
+                    </div>
+                </div>
+            </header>
+            <section class="main-section">
+                <h1>APPEL D'OFFRE POUR L'APPROVISIONNEMENT DE LA REPUBLIQUE DU CAMEROUN EN PRODUIT PETROLIER</h1>
+        
+                <!-- Ajout des onglets -->
+                <div class="tabs">
+                    <button class="tab-button active" data-tab="lancement">Lancement</button>
+                    <button class="tab-button" data-tab="lots">Lots</button>
+                    <button class="tab-button" data-tab="surestaries">Surestaries</button>
+                    <button class="tab-button" data-tab="temps-de-planches">Temps de planches</button>
+                    <button class="tab-button" data-tab="penalite">Pénalité</button>
+                </div>
+
+                <div class="tab-content active" id="lancement">
+                    <h2>Lancement</h2>
+                    <div class="form-group-header">
+                        <label>Ref:</label>
+                        <input type="text" class="input-small">
+                        <label>Code:</label>
+                        <input type="text" class="input-small">
+                        <label>Date de Signature:</label>
+                        <input type="date" class="input-small">
+                    </div>
+                    <div class="form-group">
+                        <label>Objet:</label>
+                        <input type="text" class="input-large">
+                    </div>
+                    <div class="form-group">
+                        <label>Nombre de Lots:</label>
+                        <input type="number" class="input-small" min="1">
+                        <label>Date de Lanc:</label>
+                        <input type="date" class="input-small">
+                        <label>Volume:</label>
+                        <input type="text" class="input-small" placeholder="(en Tm)">
+                    </div>
+                    <div class="form-group">
+                        <label>Lieu de livraison:</label>
+                        <select class="input-medium">
+                            <option>SONARA - Limbé</option>
+                            <option>SCDP - Douala</option>
+                            <option>Cap Limboh - Limbé</option>
+                        </select>
+                        <label>Quantité:</label>
+                        <input type="text" class="input-small" placeholder="(en Tm)">
+                    </div>
+                    <div class="form-group">
+                        <label>Produit:</label>
+                        <select class="input-medium">
+                            <option>Super</option>
+                            <option>Gasoil</option>
+                            <option>Pétrole Lampant</option>
+                            <option>Fuel Oil</option>
+                            <option>Jet AI</option>
+                        </select>
+                        <button class="add-product">AJOUTER LE PRODUIT</button>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="lots">
+                    <h2>Lots</h2>
+                    <div class="form-group">
+                        <label>lot:</label>
+                        <input type="number" class="input-small" step="1">
+                    </div>
+                    <div class="form-group">
+                        <label>Quantité:</label>
+                        <input type="text" class="input-small" placeholder="(en TM)">
+                    </div>
+                    <div class="form-group">
+                        <label>Lieu de livraison:</label>
+                        <select class="input-medium">
+                            <option>SONARA - Limbé</option>
+                            <option>SCDP - Douala</option>
+                            <option>Cap Limboh - Limbé</option>
+                        </select>
+                    </div>
+                    <button class="add-entry" id="ajouter-lot">Ajouter Lot</button>
+                    <table class="dynamic-table">
+                        <thead>
+                            <tr>
+                                <th>N° lot</th>
+                                <th>Quantité</th>
+                                <th>Lieu de livraision</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+
+                <div class="tab-content" id="surestaries">
+                    <h2>Surestaries</h2>
+                    <div class="form-group">
+                        <label>Taux:</label>
+                        <input type="number" class="input-small" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label>Devise:</label>
+                        <select class="input-small">
+                            <option>USD</option>
+                            <option>EUR</option>
+                            <option>XAF</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label> Capacité Navire:</label>
+                        <input type="number" class="input-small" placeholder="Initial" value="0">
+                        <input type="number" class="input-small" placeholder="Finale">
+                    </div>
+                    <button class="add-entry">Ajouter</button>
+                    <table class="dynamic-table">
+                        <thead>
+                            <tr>
+                                <th>Taux</th>
+                                <th>Devise</th>
+                                <th>Navire Initial</th>
+                                <th>Navire Final</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+
+                <div class="tab-content" id="temps-de-planches">
+                    <h2>Temps de planches</h2>
+                    <div class="form-group">
+                        <label>Heure:</label>
+                        <input type="text" class="input-small" value="72 Heure" readonly>
+                        <label>SHINC:</label>
+                        <input type="text" class="input-small" value="6 Heure" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Lieu:</label>
+                        <select class="input-small">
+                            <option>SONARA - Limbé</option>
+                            <option>SCDP - Douala</option>
+                            <option>Cap Limboh - Limbé</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Navire:</label>
+                        <input type="number" class="input-small" placeholder="Initial" value="0">
+                        <input type="number" class="input-small" placeholder="Finale">
+                    </div>
+                    <button class="add-entry">Ajouter</button>
+                    <table class="dynamic-table">
+                        <thead>
+                            <tr>
+                                <th>Heure</th>
+                                <th>SHINC</th>
+                                <th>Lieu</th>
+                                <th>Navire Initial</th>
+                                <th>Navire Final</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+
+                <div class="tab-content" id="penalite">
+                    <h2>Pénalité</h2>
+                    <div class="form-group">
+                        <label>Montant:</label>
+                        <input type="number" class="input-small" min="1000" placeholder="(par TM)">
+                    </div>
+                    <div class="form-group">
+                        <label>Devise:</label>
+                        <select class="input-small">
+                            <option>USD</option>
+                            <option>EUR</option>
+                            <option>XAF</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Unité:</label>
+                        <select class="input-small">
+                            <option>Journalière</option>
+                            <option>Helpdomadaire</option>
+                            <option>Mensuel</option>
+                            <option>Semestriel</option>
+                            <option>trimestriel</option>
+                            <option>Annuel</option>
+                        </select>
+                    </div>
+                    <button type="button" id="enregistrerBtn">Enregistrer</button>
+                </div>
+
+            </section>
+        </main>
+    </div>
+
+    <script>
+
+    let lotCounter = 0;
+
+    function ajouterLot() {
+    lotCounter++;
+    const lotDiv = document.createElement('div');
+    lotDiv.innerHTML = `
+        <h4>Lot ${lotCounter}</h4>
+        <input type="number" name="lot-numero-${lotCounter}" placeholder="N° lot">
+        <input type="number" name="lot-quantite-${lotCounter}" placeholder="Quantité">
+        <input type="text" name="lot-lieu-${lotCounter}" placeholder="Lieu de livraison">
+        <button type="button" onclick="supprimerLot(this)">Supprimer</button> `;
+    document.getElementById('lots-container').appendChild(lotDiv);
+    }
+
+    function supprimerLot(button) {
+    button.parentElement.remove();
+    }
+
+    document.getElementById('ajouter-lot').addEventListener('click', ajouterLot);
+
+        $(document).ready(function() {
+            // Gestion des onglets
+            $('.tab-button').click(function() {
+                var tab_id = $(this).attr('data-tab');
+                $('.tab-button').removeClass('active');
+                $('.tab-content').removeClass('active');
+                $(this).addClass('active');
+                $("#" + tab_id).addClass('active');
+            });
+
+            // Ajout d'une entrée dans le tableau dynamique
+            $('.add-entry').click(function() {
+                var taux = $(this).siblings('.form-group').find('input[type="number"]').first().val();
+                var devise = $(this).siblings('.form-group').find('select').val();
+                var navire_initial = $(this).siblings('.form-group').find('input[type="number"]').eq(1).val();
+                var navire_final = $(this).siblings('.form-group').find('input[type="number"]').last().val();
+                var newRow = `<tr>
+                                <td>${taux}</td>
+                                <td>${devise}</td>
+                                <td>${navire_initial}</td>
+                                <td>${navire_final}</td>
+                              </tr>`;
+                $(this).siblings('.dynamic-table').find('tbody').append(newRow);
+            });
+        });
+
+        function collecterDonneesLots() {
+        const lots = [];
+        const lotDivs = document.getElementById('lots-container').children;
+        for (let i = 0; i < lotDivs.length; i++) {
+            const lotDiv = lotDivs[i];
+            const lot = {
+            numero: lotDiv.querySelector('input[name^="lot-numero-"]').value,
+            quantite: lotDiv.querySelector('input[name^="lot-quantite-"]').value,
+            lieu: lotDiv.querySelector('input[name^="lot-lieu-"]').value
+            };
+            lots.push(lot);
+        }
+        return lots;
+        }
+
+        document.getElementById('enregistrerBtn').addEventListener('click', function() {
+    // Collecte des données du formulaire
+    let data = {
+        lancement: {
+            titre: document.getElementById('titre').value,
+            date: document.getElementById('date').value
+        },
+        lots: collecterDonneesLots(),
+        surestaries: {
+            taux: document.getElementById('taux').value,
+            devise: document.getElementById('devise').value,
+            navireInitial: document.getElementById('navireInitialSurestaries').value,
+            navireFinal: document.getElementById('navireFinalSurestaries').value
+        },
+        tempsDesPlanches: {
+            heure: document.getElementById('heure').value,
+            shinc: document.getElementById('shinc').checked,
+            lieu: document.getElementById('lieu').value,
+            navireInitial: document.getElementById('navireInitialPlanches').value,
+            navireFinal: document.getElementById('navireFinalPlanches').value
+        },
+        penalite: document.getElementById('penalite').value,
+    };
+
+    // Envoi des données au serveur
+    fetch('/enregistrer-appel-offre/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCookie('csrftoken')
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(result => {
+        if (result.success) {
+            alert('Appel d\'offre enregistré avec succès !');
+        } else {
+            alert('Erreur lors de l\'enregistrement de l\'appel d\'offre.');
+        }
+    })
+    .catch(error => {
+        console.error('Erreur:', error);
+        alert('Une erreur est survenue lors de l\'enregistrement.');
+    });
+});
+
+// Fonction pour obtenir le token CSRF
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+    </script>
+</body>
+</html>
+        

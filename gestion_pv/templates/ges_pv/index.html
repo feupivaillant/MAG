@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des PVs</title>
+    <!-- <link rel="stylesheet" href="styles.css">-->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Gestion des Proces Verbaux</h1>
+        <div class="informations-pv">
+            <fieldset>
+                    <legend><h2>Informations PV</h2></legend>
+                <div class="info">
+                    <div class="info-group">
+                        <label for="Date">Date :</label>
+                        <input type="text" id="Date" name="Date">
+                    </div>
+                    &emsp;&emsp;&emsp;
+                    <div class="info-group">
+                        <label for="mode">Mode :</label>
+                        <input type="text" id="mode" name="mode">
+                    </div>
+                    
+                    <div class="info-group">
+                        <label for="Marketers">Marketers :</label>
+                        <select id="Marketers" name="Marketers">
+                            <option value="selection">Sélection</option>
+                            <!-- ajouter d'autre options -->
+                        </select>
+                    </div>
+                    &emsp;&emsp;&emsp;
+                    <div class="info-group">
+                        <label for="mois">Mois :</label>
+                        <input type="text" id="mois" name="mois">
+                    </div>
+                </div>
+                <div class="info-group">
+                    <label for="nr">N° :</label>
+                    <input type="text" id="nr" name="nr">
+                </div>
+                
+                <div class="div_button">
+                    <button class="button">Volumes</button>
+                    <button class="button"><a href="maketer">Marketer</a></button>
+                    <button class="button"><a href="appel_offre">Appel</a></button> 
+                    <button class="button"><a href="sign_in">sign</a></button> 
+                </div>
+                
+            </fieldset> 
+        </div>
+        <div class="products-section">
+            <div class="div_button">
+                <button class="button">ADD</button>
+                <button class="button">News</button>
+            </div>
+            <br>
+            <table>
+                <thead>
+                    <tr>
+                        <th>N°</th>
+                        <th>Type Produit</th>
+                        <th>Quantité</th>
+                        <th>Contrat/Autorisation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- contenu ici -->
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,129 @@
+.container {
+    
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers td,
+#customers th {
+    border: 1px solid rgb(17, 4, 4);
+    padding: 6px;
+}
+
+#customers tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+    background-color: #ddd;
+}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #007BFF;
+    color: white;
+}
+
+#customers #mid {
+    text-align: center;
+}
+
+#customers #up {
+    background-color: #007BFF;
+    border-color: white;
+    border-radius: 5px;
+    padding: 8px;
+    color: white;
+    font-weight: bold;
+}
+
+#customers #del {
+    background-color: rgb(236, 33, 33);
+    border-color: white;
+    border-radius: 5px;
+    padding: 8px;
+    color: white;
+    font-weight: bold;
+}
+
+#customers button {
+    width: 100%;
+}
+
+.container1 #new {
+    background-color: #007BFF;
+    border-color: red;
+    border-radius: 5px;
+    padding: 8px;
+    color: white;
+}
+
+.container2 #new1 {
+    background-color: #007BFF;
+    border-color: red;
+    border-radius: 5px;
+    padding: 8px;
+    color: white;
+}
+
+h1 {
+    color: rgb(10, 172, 247);
+}
+
+.container1 input {
+    padding: 8px;
+}
+
+.container2 input {
+    padding: 8px;
+}
+
+.container1 {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.form_add{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.container2 {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.container #new3 {
+    padding: 8px;
+    background-color: rgb(10, 172, 247);
+    color: white;
+    border-radius: 4px;
+    border-color: rgb(10, 172, 247);
+}
