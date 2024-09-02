@@ -3,11 +3,11 @@ from . import views
 #from .views import MaketerListCreateView, MaketerDetailView, MaketerDeleteView, MaketerUpdateView, AllMaketerListView
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('index/', views.index, name='index'),
     path('maketer/', views.maketer, name='maketer'),
     path('add_mak/', views.add_mak, name='add_mak'),
     path('appel_offre/', views.appel_offre, name='appel_offre'),
-    path('sign_in/', views.sign_in, name='sign_in'),
+    path('sign_in/', views.sign_in_view, name='sign_in'),
     path("addrec/", views.addrec, name="addrec"),
     path('delete/<int:id>/',views.delete,name='delete'),
     path('update_mak/<int:id>/',views.update,name='update'),

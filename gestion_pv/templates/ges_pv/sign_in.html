@@ -1,30 +1,31 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Authentification</title>
-    {% load static %}
-	<link rel="stylesheet"  href="{% static 'css/style.css' %}">
-	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
-	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Authentification</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-	<img class="wave" src="templates/img/wave.png">
-	<div class="container">
-		<div class="img">
-			<img src="templates/img/bg.svg">
-		</div>
-		<div class="login-content">
-			<form action="sign_in.html">
-				<img src="templates/img/avatar.svg">
-				<h2 class="title">Welcome</h2>
+    <img class="wave" src="{% static 'img/wave.png' %}">
+    <div class="container">
+        <div class="img">
+            <img src="{% static 'img/bg.svg' %}">
+        </div>
+        <div class="login-content">
+            <form method="POST" action="{% url 'sign_in' %}">
+				{% csrf_token %}
+                <img src="{% static 'img/avatar.svg' %}">
+                <h2 class="title">Bienvenu</h2>
            		<div class="input-div one">
            		   <div class="i">
            		   		<i class="fas fa-user"></i>
            		   </div>
            		   <div class="div">
-           		   		<h5>Username</h5>
-           		   		<input type="text" class="input">
+           		   		<h5>Email</h5>
+           		   		<input type="email" class="input" name="email">
            		   </div>
            		</div>
            		<div class="input-div pass">
@@ -32,15 +33,24 @@
            		    	<i class="fas fa-lock"></i>
            		   </div>
            		   <div class="div">
-           		    	<h5>Password</h5>
-           		    	<input type="password" class="input">
+           		    	<h5>Mot de Passe</h5>
+           		    	<input type="password" class="input" name="password">
             	   </div>
             	</div>
-            	<a href="#">Forgot Password?</a>
-            	<input type="submit" class="btn" value="Login">
+	
+            	<a href="#">Mot de Passe oublier ?</a>
+                <input type="submit" class="btn" value="Connexion">
+
+				{% if messages %}
+					{% for message in messages %}
+						<div class="alert alert-{{ message.tags }}">
+							{{ message }}
+						</div>
+					{% endfor %}
+				{% endif %}
             </form>
         </div>
     </div>
-    <script type="text/javascript" src="templates/js/main.js"></script>
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 </body>
 </html>
